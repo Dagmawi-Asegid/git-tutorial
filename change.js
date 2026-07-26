@@ -1,23 +1,31 @@
-const projectConfig = {
-    projectName: "Git Tutorial",
-    developer: "Dagmawi",
-    version: "1.0.0",
-    status: "Active",
-    features: [
-        "Git basics",
-        "JavaScript modules",
-        "Node.js practice"
-    ]
-};
+const { projectConfig, showConfig } = require("./config");
 
-function showConfig() {
-    console.log("Project:", projectConfig.projectName);
-    console.log("Developer:", projectConfig.developer);
-    console.log("Version:", projectConfig.version);
-    console.log("Status:", projectConfig.status);
+// Display current project information
+console.log("Current Project Information:");
+showConfig();
+
+console.log("----------------------------");
+
+// Function to update project status
+function updateStatus(newStatus) {
+    projectConfig.status = newStatus;
+    console.log("Project status updated to:", projectConfig.status);
 }
 
-module.exports = {
-    projectConfig,
-    showConfig
-};
+// Function to add a new feature
+function addFeature(feature) {
+    projectConfig.features.push(feature);
+    console.log("New feature added:", feature);
+}
+
+// Make changes
+updateStatus("Completed");
+addFeature("GitHub collaboration");
+
+console.log("----------------------------");
+
+// Display updated information
+console.log("Updated Features:");
+projectConfig.features.forEach((feature, index) => {
+    console.log(`${index + 1}. ${feature}`);
+});
