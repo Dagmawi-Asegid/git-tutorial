@@ -1,31 +1,32 @@
 const { projectConfig, showConfig } = require("./config");
 
-// Display current project information
+// Display the current project information
 console.log("Current Project Information:");
 showConfig();
 
 console.log("----------------------------");
 
-// Function to update project status
-function updateStatus(newStatus) {
-    projectConfig.status = newStatus;
-    console.log("Project status updated to:", projectConfig.status);
+// Update the project's status
+function updateProjectStatus(status) {
+    projectConfig.status = status;
+    console.log(`Project status updated to: ${projectConfig.status}`);
 }
 
-// Function to add a new feature
-function addFeature(feature) {
+// Add a new feature to the project
+function addProjectFeature(feature) {
     projectConfig.features.push(feature);
-    console.log("New feature added:", feature);
+    console.log(`New feature added: ${feature}`);
 }
 
-// Make changes
-updateStatus("Completed");
-addFeature("GitHub collaboration");
+// Make changes to the project
+updateProjectStatus("Completed");
+addProjectFeature("GitHub collaboration");
 
 console.log("----------------------------");
 
-// Display updated information
+// Display the updated list of features
 console.log("Updated Features:");
+
 projectConfig.features.forEach((feature, index) => {
     console.log(`${index + 1}. ${feature}`);
 });
